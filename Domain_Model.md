@@ -19,5 +19,5 @@ Methods
 -Used
 -Fix
 -Move
--Take
 -Hold
+-Release
