@@ -43,4 +43,6 @@ describe DockingStation do
     2.times {station.dock(bike)}
     expect{ station.duplicate(bike) }.to raise_error(RuntimeError, 'You cannot dock the same bike twice!')
   end
+
+
 end

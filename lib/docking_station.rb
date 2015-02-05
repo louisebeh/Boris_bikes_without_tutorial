@@ -33,11 +33,10 @@ class DockingStation
   end
 
   def duplicate(bike)
-    if
-    @bikes.detect {|e| @bikes.count(e) > 1}
-    raise 'You cannot dock the same bike twice!'
+    if @bikes.detect {|e| @bikes.count(e) > 1}
+      raise 'You cannot dock the same bike twice!'
+    end
   end
-end
 
 end
 
