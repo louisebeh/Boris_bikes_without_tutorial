@@ -32,11 +32,15 @@ describe DockingStation do
     #Lambda: allows us to save a block of code as a variable
   end
 
-  it 'should provide a list of available bikes' do #we now need to think about bike & DockingStation simultaneously
+  it 'should provide a list of available bikes' do
+  #we now need to think about bike & DockingStation simultaneously
     station.dock(bike)
     station.dock(broken_bike)
     expect(station.available_bikes).to eq([bike])
   end
 
-
+  it 'does not allow the same bike to be docked twice' do
+    2.times {station.dock(bike)}
+    expect{ station.duplicate(bike) }.to raise_error(RuntimeError, 'You cannot dock the same bike twice!')
+  end
 end

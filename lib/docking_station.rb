@@ -32,5 +32,12 @@ class DockingStation
     # @bikes.reject {|bike| bike.broken? } deletes broken bikes from the @bikes array thus leaving the available bikes.
   end
 
+  def duplicate(bike)
+    if
+    @bikes.detect {|e| @bikes.count(e) > 1}
+    raise 'You cannot dock the same bike twice!'
+  end
+
+end
 
 end
