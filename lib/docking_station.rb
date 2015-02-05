@@ -1,43 +1,23 @@
+#load BikeContainer module
+require_relative 'bike_container'
+
 class DockingStation
-  DEFAULT_CAPACITY = 10
+
+  #this gives us all the methods to be used in this class
+  include BikeContainer
 
 
   def initialize(options = {})
-    @capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
-    @bikes = []
+    # self.capacity is calling the capacity=() method
+    # (note the equals sign) defined in BikeContainer
+    # capacity (the second argument to fetch()) is calling
+    # the capacity() method in BikeContainer
+    self.capacity = options.fetch(:capacity, capacity)
   end
 
-  def dock(bike)
-    raise 'Station is full' if full?
-    @bikes << bike
-  end
-
-  def bike_count
-    @bikes.count
-  end
-
-  def release(bike)
-    @bikes.delete(bike)
-  end
-
-  def full?
-    bike_count == @capacity
-  end
-
-  def available_bikes
-    @bikes.reject {|bike| bike.broken? }
-    #@bikes : denotes bikes within an array
-    #.reject : deletes elements from the forthcoming block that evaluate to true.
-    #{|bike| bike.broken? } : is an array of all broken bikes. r
-    # @bikes.reject {|bike| bike.broken? } deletes broken bikes from the @bikes array thus leaving the available bikes.
-  end
-
-  def duplicate(bike)
-    if @bikes.detect {|e| @bikes.count(e) > 1}
-      raise 'You cannot dock the same bike twice!'
-    end
-  end
+  # The initializer method has been retained because we want the ability to set a custom capacity for the station.
 
 end
+
 
 
