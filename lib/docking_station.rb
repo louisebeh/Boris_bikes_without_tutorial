@@ -37,7 +37,6 @@ class DockingStation
     @bikes.detect {|e| @bikes.count(e) > 1}
     raise 'You cannot dock the same bike twice!'
   end
-
 end
 
 end
