@@ -23,7 +23,7 @@ module BikeContainer
   end
 
   def dock(bike)
-    raise 'Holder is full' if full?
+    raise 'Sorry! The holder is full!' if full?
     bikes << bike
   end
 
@@ -39,6 +39,21 @@ module BikeContainer
     bikes.reject {|bike| bike.broken? }
   end
 
+  def broken_bike_count
+    broken_bikes = []
+    station.bikes.each do |bike|
+      if bike.broken?
+        broken_bikes << bike
+      end
+    end
 
+  def release_broken_bikes
+    broken_bike_count.each do
+      release(broken_bike_count)
+    end
+  #   return broken_bikes
+  end
 end
 
+
+end

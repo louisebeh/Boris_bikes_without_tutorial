@@ -2,7 +2,7 @@ require 'bike_container'
 
 class ContainerHolder; include BikeContainer; end #this is an artificial class for test purposes. The only job of this class is to include BikeContainer.
 
-describe BikeContainer do |variable|
+describe BikeContainer do
 
   let(:bike) { Bike.new }
   let(:holder) { ContainerHolder.new }
@@ -29,7 +29,7 @@ describe BikeContainer do |variable|
 
   it 'should not accept a bike when it\'s full' do
     fill_holder(holder)
-    expect{ holder.dock(bike) }.to raise_error(RuntimeError, 'Holder is full')
+    expect{ holder.dock(bike) }.to raise_error(RuntimeError, 'Sorry! The holder is full!')
   end
 
   it 'should provide a list of available bikes' do
